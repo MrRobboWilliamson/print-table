@@ -1,5 +1,3 @@
-
-
 ===================
 Print Table Module
 ===================
@@ -11,3 +9,6 @@ The PrintTable class takes data as a 2-tuple key, (row, col).
 
 There are optional arguments for headers and labels. There is a dimensions arg, but
 I might automate this in the future.
+
+Run the following command to install
+> pip install git+https://github.com/MrRobboWilliamson/print-table.git#egg=printtable

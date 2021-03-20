@@ -7,11 +7,11 @@ setup(
     author='Rob Williamson',
     author_email='robmwilliamson@gmail.com',
     # Needed to actually package something
-    packages=['print-table'],
+    packages=['prnt_tbls'],
     # Needed for dependencies
     install_requires=[],
     # *strongly* suggested for sharing
-    version='0.1',
+    version='0.0.1',
     # The license can be anything you like
     license='MIT',
     description='This package provides a class to print tables nicely in the console',

@@ -7,7 +7,7 @@ setup(
     author='Rob Williamson',
     author_email='robmwilliamson@gmail.com',
     # Needed to actually package something
-    packages=['prnt_tbls'],
+    packages=['printable'],
     # Needed for dependencies
     install_requires=[],
     # *strongly* suggested for sharing

@@ -11,4 +11,4 @@ inputs = {
 
 print(inputs)
 print("\nPrintTable:")
-print(PrintTable(inputs))
+print(PrintTable(inputs,headers=['start', 'end'], labels=[2,3,4]))

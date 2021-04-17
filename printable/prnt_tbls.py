@@ -40,7 +40,7 @@ class PrintTable():
                 raise TypeError("Headers must be a list")
             # check the length matches the number of columns
             if len(headers) != self.ncols:
-                raise ValueError("Expected header list of length", self.ncols)            
+                raise ValueError(f"Expected header list of length {self.ncols}")            
             self.headers = headers
         elif headers is None:
             self.headers = [str(hdr) for hdr in self.get_idxvals()[1]]
@@ -52,7 +52,7 @@ class PrintTable():
                 raise TypeError("Labels must be a list")
             # check the length matches the number of columns
             if len(labels) != self.nrows:
-                raise ValueError("Expected label list of length", self.nrows)            
+                raise ValueError(f"Expected label list of length {self.nrows}")            
 
             # convert the labels to strings
             self.labels = [str(lbl) for lbl in labels]
@@ -71,8 +71,8 @@ class PrintTable():
         # need to know what size the columns are
         self.col_size[0] = max([len(lbl) for lbl in self.labels])
         self.col_start = 1
-        self.headers.insert(0, "")
         self.size_cols()
+        self.headers.insert(0, "")
         self.row_base = self.construct_rowbase()
         self.header_row = self.construct_header()
         self.table = self.construct_table()

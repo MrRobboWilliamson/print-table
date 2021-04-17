@@ -41,7 +41,9 @@ class PrintTable():
             # check the length matches the number of columns
             if len(headers) != self.ncols:
                 raise ValueError(f"Expected header list of length {self.ncols}")            
-            self.headers = headers
+            
+            # !! must make a copy of the headers !!
+            self.headers = list(headers)
         elif headers is None:
             self.headers = [str(hdr) for hdr in self.get_idxvals()[1]]
 

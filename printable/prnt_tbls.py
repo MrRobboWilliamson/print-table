@@ -5,15 +5,24 @@ Created on Sat Mar 13 12:24:04 2021
 
 @author: rob
 """
+from ordered_set import OrderedSet
 
 class PrintTable():
     """
     Takes some loosly defined tables and prints them out nice
     """    
-    def __init__(self, data, dims, headers, labels=None, left_pad=1,
-                 right_pad=1,  col_sep="|", hdr_sep="-", rounding=0):
-        self.nrows = dims[0]
-        self.ncols = dims[1]
+    def __init__(self, data, headers=None, labels=None, left_pad=1,
+                 right_pad=1,  col_sep="|", hdr_sep="-", rounding=0):        
+        
+        # if the headers are not provided, use the column indecies
+        if headers:
+            self.headers = headers
+        elif headers is None:
+            self.headers = [str(hdr) for hdr in self.get_idxvals(data.keys())[1]]
+            
+        # this line here means we need a data input type dict()
+        self.nrows, self.ncols = self.get_dims(data.keys())
+        # self.index = self.create_index(data.keys())
         self.rounding = rounding
         self.col_start = 0
         self.data = data # as a dict with tuple index
@@ -36,6 +45,35 @@ class PrintTable():
         self.row_base = self.construct_rowbase()
         self.header_row = self.construct_header()
         self.table = self.construct_table()
+
+    def get_idxvals(self, index):
+        """
+        from the keys get the unique row and column labels
+        """
+        input_rows = list()
+        input_cols = list()
+        for key in index:
+            input_rows.append(key[0])
+            input_cols.append(key[1])
+
+        return OrderedSet(input_rows), Orderedset(input_cols)
+    
+    def get_dims(self, index):
+        """
+        from the keys in the data, let's workout the dims     
+        """
+        row_lbl, col_lbl = get_idxvals(index)
+        return len(row_lbl), len(col_lbl)
+
+    # def create_index(self, index):
+    #     """
+    #     from the current index, lets create a 0-n index for the cols
+    #     and the rows
+    #     """
+    #     row_lbl, col_lbl = get_idxvals(index)
+
+    #     # enumerate the indecies and create a lookup
+    #     return len(rows), len(cols)
         
     def size_cols(self):
         """

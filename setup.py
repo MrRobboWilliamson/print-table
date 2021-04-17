@@ -9,9 +9,9 @@ setup(
     # Needed to actually package something
     packages=['printable'],
     # Needed for dependencies
-    install_requires=[],
+    install_requires=['ordered-set==4.0.2'],
     # *strongly* suggested for sharing
-    version='0.0.1',
+    version='0.0.2',
     # The license can be anything you like
     license='MIT',
     description='This package provides a class to print tables nicely in the console',
